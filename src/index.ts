@@ -10,7 +10,6 @@ import {
   Strategy,
   StrategyVerifyCallback,
 } from "remix-auth";
-import { v4 as uuid } from "uuid";
 
 let debug = createDebug("OAuth2Strategy");
 
@@ -296,7 +295,7 @@ export class OAuth2Strategy<
   }
 
   private generateState() {
-    return uuid();
+    return crypto.randomUUID();
   }
 
   /**
